@@ -9,10 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chrome-aws-lambda": "^2.0.0",
-    "puppeteer-core": "^2.0.0"
+    "chrome-aws-lambda": "^2.1.1",
+    "imagemin": "^7.0.1",
+    "imagemin-pngquant": "^9.0.0",
+    "puppeteer-core": "^2.1.1"
   },
   "devDependencies": {
-    "puppeteer": "^2.0.0"
+    "puppeteer": "^2.1.1"
   }
 }
