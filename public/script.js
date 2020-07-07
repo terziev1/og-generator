@@ -36,7 +36,7 @@ img.src = bufferToImageUrl(res.buffer.data);
 document.getElementById('result').innerHTML = img.outerHTML;
 })
 .catch((err,res) => {
-    console.loglog(res)
+    console.log(res)
             console.log(err)
             document.getElementById('result').textContent = `Error: ${err.toString()}`
         });
