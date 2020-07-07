@@ -28,15 +28,14 @@ document.querySelector('button[type="submit"]').addEventListener('click', (e) =>
     fetch("/.netlify/functions/take-screenshot", options)
         .then((res) => res.json())
         .then((res) => {
-console.loglog(res)
+
 if (!res.buffer) return document.getElementById('result').textContent = 'Error capturing screenshot';
 
 const img = document.createElement('img');
 img.src = bufferToImageUrl(res.buffer.data);
 document.getElementById('result').innerHTML = img.outerHTML;
 })
-.catch((err,res) => {
-    console.log(res)
+.catch((err) => {
             console.log(err)
             document.getElementById('result').textContent = `Error: ${err.toString()}`
         });
