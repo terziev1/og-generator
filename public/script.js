@@ -26,15 +26,15 @@ document.querySelector('button[type="submit"]').addEventListener('click', (e) =>
     document.getElementById('result').textContent = "Please wait..."
 
     fetch("/.netlify/functions/take-screenshot", options)
-        .then((res) => console.log(res))
-        // .then((res) => {
+        .then((res) => res.json())
+        .then((res) => {
+            console.log(res)
+            if (!res.buffer) return document.getElementById('result').textContent = 'Error capturing screenshot';
 
-        //     if (!res.buffer) return document.getElementById('result').textContent = 'Error capturing screenshot';
-
-        //     const img = document.createElement('img');
-        //     img.src = bufferToImageUrl(res.buffer.data);
-        //     document.getElementById('result').innerHTML = img.outerHTML;
-        // })
+            const img = document.createElement('img');
+            img.src = bufferToImageUrl(res.buffer.data);
+            document.getElementById('result').innerHTML = img.outerHTML;
+        })
         .catch((err) => {
             console.log(err)
             document.getElementById('result').textContent = `Error: ${err.toString()}`
