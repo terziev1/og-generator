@@ -1,7 +1,7 @@
 {
-  "name": "take-screenshot",
+  "name": "saikai-og-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "OG Image Generator Using Puppeteer and Netlify",
   "main": "take-screenshot.js",
   "scripts": {
     "build": "echo \"No build specified\""
