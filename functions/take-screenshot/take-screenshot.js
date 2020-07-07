@@ -26,7 +26,10 @@ exports.handler = async (event, context) => {
 
     return {
         statusCode: 200,
-        body: pageToScreenshot
+        body: JSON.stringify({
+            message: `Complete screenshot of ${pageToScreenshot}`,
+            buffer: screenshot
+        })
     }
 
 }
