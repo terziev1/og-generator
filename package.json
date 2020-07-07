@@ -2,12 +2,9 @@
     "name": "og-generator",
     "version": "0.1.0",
     "scripts": {
-      "build": ""
-
-    },
-    "dependencies": {
+        "build": "netlify-lambda build functions"
     },
     "devDependencies": {
-
+        "netlify-lambda": "^1.6.3"
     }
-  }
+}
