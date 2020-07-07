@@ -1,11 +1,13 @@
 {
     "name": "og-generator",
-    "version": "1.0.0",
-    "description": "",
-    "author": "",
-    "license": "ISC",
+    "version": "0.1.0",
+    "scripts": {
+      "build": ""
+
+    },
     "dependencies": {
     },
     "devDependencies": {
+
     }
   }
