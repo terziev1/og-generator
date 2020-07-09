@@ -21,7 +21,6 @@ exports.handler = async (event, context) => {
     await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
 
     const screenshot =  await page.screenshot({
-        path:'../og-img.png',
         clip: {
           x: 10,
           y: 10,
