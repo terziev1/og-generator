@@ -30,7 +30,6 @@ exports.handler = async (event, context) => {
         },
       })
 
-    fs.writeFileSync('og-img', screenshot);
     await browser.close();
 
     return {
