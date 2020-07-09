@@ -21,15 +21,16 @@ exports.handler = async (event, context) => {
     await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
 
     const screenshot =  await page.screenshot({
+        type:'svg',
         clip: {
-          x: 10,
-          y: 10,
-          width: 600,
-          height: 300,
+          x: 0,
+          y: 0,
+          width: 1200,
+          height: 600,
         },
       })
 
-
+    fs.writeFileSync('og-img', screenshot);
     await browser.close();
 
     return {
