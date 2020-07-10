@@ -49,7 +49,7 @@ exports.handler = async (event, context) => {
 
         })
       });
-          const page = await browser.newPage();
+    const page = await browser.newPage();
 
     await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
 
