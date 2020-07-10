@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ message: 'Page URL not defined' })
     }
 
-    const browser = await renderSocialImage({
+    const page = await renderSocialImage({
         template: "basic",
         templateParams: {
           imageUrl:
@@ -25,22 +25,23 @@ exports.handler = async (event, context) => {
 
         })
       });
-      return browser
+
     // const page = await browser.newPage();
 
-    // await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
+    await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
 
-    // const screenshot =  await page.screenshot({})
+    const screenshot =  await page.screenshot({})
 
-    // await browser.close();
+    await browser.close();
 
-    // return {
-    //     statusCode: 200,
-    //     body: JSON.stringify({
-    //         message: `Complete screenshot of ${pageToScreenshot}`,
-    //         buffer: screenshot
-    //     })
-    // }
+
+    return {
+        statusCode: 200,
+        body: JSON.stringify({
+            message: `Complete screenshot of ${pageToScreenshot}`,
+            buffer: screenshot
+        })
+    }
 
 
 }
