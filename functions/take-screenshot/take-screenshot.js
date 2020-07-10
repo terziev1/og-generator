@@ -1,6 +1,6 @@
 const chromium = require('chrome-aws-lambda');
-import puppeteer from "puppeteer-serverless";
-import renderSocialImage from "puppeteer-social-image";
+const puppeteer = require('puppeteer-serverless');
+const renderSocialImage = require('puppeteer-social-image');
 
 exports.handler = async (event, context) => {
     const pageToScreenshot = JSON.parse(event.body).pageToScreenshot;
