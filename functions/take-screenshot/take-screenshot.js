@@ -26,21 +26,22 @@ exports.handler = async (event, context) => {
 
         })
       });
-    const page = await browser.newPage();
+      return browser
+    // const page = await browser.newPage();
 
-    await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
+    // await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
 
-    const screenshot =  await page.screenshot({})
+    // const screenshot =  await page.screenshot({})
 
-    await browser.close();
+    // await browser.close();
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify({
-            message: `Complete screenshot of ${pageToScreenshot}`,
-            buffer: screenshot
-        })
-    }
+    // return {
+    //     statusCode: 200,
+    //     body: JSON.stringify({
+    //         message: `Complete screenshot of ${pageToScreenshot}`,
+    //         buffer: screenshot
+    //     })
+    // }
 
 
 }
