@@ -1,3 +1,6 @@
+
+import puppeteer from "puppeteer-serverless";
+import renderSocialImage from "puppeteer-social-image";
 function bufferToImageUrl(buffer) {
     // See https://gist.github.com/candycode/f18ae1767b2b0aba568e
 
@@ -12,31 +15,40 @@ function bufferToImageUrl(buffer) {
 document.querySelector('button[type="submit"]').addEventListener('click', (e) => {
 
     e.preventDefault();
+    return await renderSocialImage({
+        template: "basic",
+        templateParams: {
+          imageUrl:
+            "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
+          title: "Hello, world"
+        },
+        browser: await puppeteer.launch({})
+      });
 
-    const pageToScreenshot = 'https://saikai-og.netlify.app/template/';
+    // const pageToScreenshot = 'https://saikai-og.netlify.app/template/';
 
-    if (!pageToScreenshot) return document.getElementById('result').textContent = 'Please enter a page URL';
+    // if (!pageToScreenshot) return document.getElementById('result').textContent = 'Please enter a page URL';
 
-    const options = {
-        method: "POST",
-        headers: { "Content-Type": "application/json; charset=utf-8" },
-        body: JSON.stringify({ pageToScreenshot: pageToScreenshot })
-    };
+    // const options = {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json; charset=utf-8" },
+    //     body: JSON.stringify({ pageToScreenshot: pageToScreenshot })
+    // };
 
-    document.getElementById('result').textContent = "Please wait..."
+    // document.getElementById('result').textContent = "Please wait..."
 
-    fetch("/.netlify/functions/take-screenshot", options)
-        .then((res) => console.log(res))
-        // .then((res) => {
+    // fetch("/.netlify/functions/take-screenshot", options)
+    //     .then((res) => console.log(res))
+    //     // .then((res) => {
 
-        //     if (!res.buffer) return document.getElementById('result').textContent = 'Error capturing screenshot';
+    //     //     if (!res.buffer) return document.getElementById('result').textContent = 'Error capturing screenshot';
 
-        //     const img = document.createElement('img');
-        //     img.src = bufferToImageUrl(res.buffer.data);
-        //     document.getElementById('result').innerHTML = img.outerHTML;
-        // })
-        .catch((err) => {
-            console.log(err)
-            document.getElementById('result').textContent = `Error: ${err.toString()}`
-        });
+    //     //     const img = document.createElement('img');
+    //     //     img.src = bufferToImageUrl(res.buffer.data);
+    //     //     document.getElementById('result').innerHTML = img.outerHTML;
+    //     // })
+    //     .catch((err) => {
+    //         console.log(err)
+    //         document.getElementById('result').textContent = `Error: ${err.toString()}`
+    //     });
 });
