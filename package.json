@@ -11,7 +11,6 @@
   "dependencies": {
     "chrome-aws-lambda": "^2.0.0",
     "puppeteer-core": "^2.0.0",
-    "puppeteer-serverless": "^1.0.0",
     "puppeteer-social-image": "^0.8.1"
   },
   "devDependencies": {
