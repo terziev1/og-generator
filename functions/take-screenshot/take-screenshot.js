@@ -1,5 +1,4 @@
 const chromium = require('chrome-aws-lambda');
-const puppeteer = require('puppeteer-serverless');
 const renderSocialImage = require('puppeteer-social-image');
 
 exports.handler = async (event, context) => {
@@ -17,7 +16,7 @@ exports.handler = async (event, context) => {
             "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
           title: "Hello, world"
         },
-        browser: await puppeteer.launch({
+        browser: await chromium.puppeteer.launch({
 
                     args: chromium.args,
                     defaultViewport: chromium.defaultViewport,
