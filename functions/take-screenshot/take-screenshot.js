@@ -10,11 +10,10 @@ exports.handler = async (event, context) => {
     }
 
     const page = await renderSocialImage({
-        template: "basic",
+        templateBody: '<div class="Main">Hello, {{name}}!</div>',
+        templateStyles: ".Main { color: blue; }",
         templateParams: {
-          imageUrl:
-            "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
-          title: "Hello, world"
+          name: "Jane"
         },
         browser: await chromium.puppeteer.launch({
 
