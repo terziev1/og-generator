@@ -1,43 +1,43 @@
-const chromium = require('chrome-aws-lambda');
+// const chromium = require('chrome-aws-lambda');
 
-exports.handler = async (event, context) => {
+// exports.handler = async (event, context) => {
 
-    const pageToScreenshot = JSON.parse(event.body).pageToScreenshot;
+//     const pageToScreenshot = JSON.parse(event.body).pageToScreenshot;
 
-    if (!pageToScreenshot) return {
-        statusCode: 400,
-        body: JSON.stringify({ message: 'Page URL not defined' })
-    }
+//     if (!pageToScreenshot) return {
+//         statusCode: 400,
+//         body: JSON.stringify({ message: 'Page URL not defined' })
+//     }
 
-    const browser = await chromium.puppeteer.launch({
-        args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath,
-        headless: chromium.headless,
-    });
+//     const browser = await chromium.puppeteer.launch({
+//         args: chromium.args,
+//         defaultViewport: chromium.defaultViewport,
+//         executablePath: await chromium.executablePath,
+//         headless: chromium.headless,
+//     });
 
-    const page = await browser.newPage();
+//     const page = await browser.newPage();
 
-    await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
+//     await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
 
-    const screenshot =   await page.screenshot({
-        path:'../og-img.png',
-        clip: {
-          x: 10,
-          y: 10,
-          width: 600,
-          height: 300,
-        },
-      })
+//     const screenshot =   await page.screenshot({
+//         path:'../og-img.png',
+//         clip: {
+//           x: 10,
+//           y: 10,
+//           width: 600,
+//           height: 300,
+//         },
+//       })
 
-    await browser.close();
+//     await browser.close();
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify({
-            message: `Complete screenshot of ${pageToScreenshot}`,
-            buffer: screenshot
-        })
-    }
+//     return {
+//         statusCode: 200,
+//         body: JSON.stringify({
+//             message: `Complete screenshot of ${pageToScreenshot}`,
+//             buffer: screenshot
+//         })
+//     }
 
-}
+// }
